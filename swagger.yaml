@@ -5,7 +5,7 @@ info:
   contact: {}
   version: "1.0"
 servers:
-  - url: https://7f45-2001-448a-4020-34d6-d082-8b76-9b90-9059.ap.ngrok.io/api/v1
+  - url: https://zealous-elk-loafers.cyclic.app/api/v1
     variables: {}
 paths:
   /users:
