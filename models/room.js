@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const unique = require("mongoose-unique-validator");
-const { DateTime } = require("luxon");
 
 mongoose.set("strictQuery", true);
 
@@ -22,14 +21,7 @@ const RoomSchema = new mongoose.Schema(
 		},
 		status: {
 			type: String,
-			enum: [
-				"Recruiting",
-				"Full",
-				"Tommorow",
-				"In progress",
-				"Held",
-				"Cancelled",
-			],
+			enum: ["Recruiting", "Full"],
 			default: function () {
 				if (this.members.length === this.membersCount) {
 					return "Full";
@@ -43,11 +35,6 @@ const RoomSchema = new mongoose.Schema(
 			required: [true, "Need host"],
 		},
 		location: String,
-		eventDate: {
-			type: Date,
-			default: DateTime.now().plus({ days: 1 }),
-			min: DateTime.now().plus({ hours: 10 }),
-		},
 		membersCount: {
 			type: Number,
 			default: 1,

@@ -73,14 +73,12 @@ const updateRoom = asyncWrapper(async (req, res) => {
 	const createdBy = req.user.userID;
 	const roomID = req.params.id;
 
-	const { roomName, members, location, eventDate, membersCount, description } =
-		req.body;
+	const { roomName, members, location, membersCount, description } = req.body;
 
 	const newData = {
 		roomName,
 		members,
 		location,
-		eventDate,
 		membersCount,
 		description,
 	};
